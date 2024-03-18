@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>处理用户输入</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<body>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">反转消息</button>
+    </div>
+
+    <div id="app-6">
+        <!-- v-model进行快速绑定 -->
+        <input v-model="message"/>
+    </div>
+</body>
+<script>
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: "Hello nacho neko"
+        },
+        methods: {
+            reverseMessage: function(){
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Nacho neko'
+        }
+    })
+</script>
+</html>
